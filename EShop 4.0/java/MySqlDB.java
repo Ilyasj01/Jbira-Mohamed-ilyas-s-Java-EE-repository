@@ -25,9 +25,7 @@ public class MySqlDB {
 
   public User findUser(String username, String Pwd) throws SQLException {
     PreparedStatement statement =
-      this.cn.prepareStatement(
-          "SELECT * FROM utilisateur WHERE username=? AND password=?"
-        );
+      this.cn.prepareStatement("SELECT * FROM utilisateur WHERE username=? AND password=?");
     ResultSet resultSet = statement.executeQuery();
     user =new User(
         resultSet.getInt("id"),
