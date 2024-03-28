@@ -12,10 +12,7 @@ public class LoginServlet extends HttpServlet {
 
   public LoginServlet() {}
 
-  protected void doPost(
-    HttpServletRequest request,
-    HttpServletResponse response
-  ) throws ServletException, IOException {
+  protected void doPost(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
     String username = request.getParameter("username");
     String password = request.getParameter("password");
     try {
