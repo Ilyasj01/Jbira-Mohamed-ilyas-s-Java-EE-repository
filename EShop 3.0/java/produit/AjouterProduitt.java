@@ -15,10 +15,7 @@ public class AjouterProduitt extends HttpServlet {
 
   public AjouterProduitt() {}
 
-  protected void doPost(
-    HttpServletRequest request,
-    HttpServletResponse response
-  ) throws ServletException, IOException {
+  protected void doPost(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
     String quantite = request.getParameter("qte");
     String description = request.getParameter("desc");
     String designation = request.getParameter("desi");
