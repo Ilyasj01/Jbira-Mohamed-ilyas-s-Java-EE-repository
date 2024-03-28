@@ -10,14 +10,7 @@ public class Produit implements Serializable {
   private int qte;
   private String designation;
 
-  public Produit(
-    Long id,
-    Long id_Cat,
-    String description,
-    int qte,
-    String designation,
-    double prix
-  ) {
+  public Produit(Long id,Long id_Cat,String description,int qte,String designation,double prix) {
     this.id = id;
     this.id_Cat = id_Cat;
     this.prix = prix;
