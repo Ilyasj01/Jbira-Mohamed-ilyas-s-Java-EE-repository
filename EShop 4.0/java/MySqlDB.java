@@ -19,12 +19,7 @@ public class MySqlDB {
 
   public MySqlDB() throws ClassNotFoundException, SQLException {
     Class.forName("com.mysql.jdbc.Driver");
-    this.cn =
-      DriverManager.getConnection(
-        "jdbc:mysql://localhost:3306/eshop",
-        "root",
-        ""
-      );
+    this.cn =DriverManager.getConnection(jdbc:mysql://localhost:3306/eshop","root","");
     System.out.print("Connected!");
   }
 
@@ -34,8 +29,7 @@ public class MySqlDB {
           "SELECT * FROM utilisateur WHERE username=? AND password=?"
         );
     ResultSet resultSet = statement.executeQuery();
-    user =
-      new User(
+    user =new User(
         resultSet.getInt("id"),
         resultSet.getString("username"),
         resultSet.getString("password"),
@@ -45,14 +39,8 @@ public class MySqlDB {
     return user;
   }
 
-  public ArrayList<Produit> findAllProduit(
-    String username,
-    String Pwd,
-    HttpServletRequest req,
-    HttpServletResponse res
-  ) throws SQLException, ServletException, IOException {
-    PreparedStatement statement =
-      this.cn.prepareStatement("SELECT * FROM produit");
+  public ArrayList<Produit> findAllProduit(String username,String Pwd,HttpServletRequest req,HttpServletResponse res) throws SQLException, ServletException, IOException {
+    PreparedStatement statement = this.cn.prepareStatement("SELECT * FROM produit");
     ResultSet resultSet = statement.executeQuery();
     while (resultSet.next()) {
       Long id = resultSet.getLong("id");
@@ -65,9 +53,7 @@ public class MySqlDB {
         new Produit(id, id_Cat, description, qte, designation, price)
       );
     }
-    RequestDispatcher dispatch = req.getRequestDispatcher(
-      "admin/produit/lister.jsp"
-    );
+    RequestDispatcher dispatch = req.getRequestDispatcher("admin/produit/lister.jsp");
     req.setAttribute("products", produits);
     dispatch.forward(req, res);
     return null;
