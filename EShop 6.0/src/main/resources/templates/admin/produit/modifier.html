@@ -1,0 +1,24 @@
+<html>
+<head><title>modifier</title></head>
+<body>
+<form th:object="${product}" th:action="@{/admin/product/update}" method="post">
+    <div>Designation:
+        <input type="text" id="designation" th:field="${product.designation}"
+               required>
+    </div>
+    <div>Qte:
+        <input type="number" id="qte" th:field="${product.qte}" required>
+    </div>
+    <div>Prix:
+        <input type="number" id="prix" th:field="${product.prix}" required>
+    </div>
+    <div>
+        Description
+        <textarea id="description" th:field="${product.description}">
+</textarea>
+    </div>
+    <button type="submit">Modifier</button>
+</form>
+</body>
+</html>
+

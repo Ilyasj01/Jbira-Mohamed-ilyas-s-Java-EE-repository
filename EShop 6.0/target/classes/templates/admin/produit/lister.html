@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Produits</title>
+</head>
+<body>
+<h1>Produits:</h1>
+<table border="1">
+    <tr>
+        <th>Id</th>
+        <th>Designation</th>
+        <th>Description</th>
+        <th>Quantite</th>
+        <th>Categorie</th>
+        <th>Actions</th>
+    </tr>
+    <tr th:each="produit:${products}">
+        <td th:text="${produit.id}"></td>
+        <td th:text="${produit.designation}"></td>
+        <td th:text="${produit.description}"></td>
+        <td th:text="${produit.qte}"></td>
+        <td th:text="${produit.categorie.designation}"></td>
+        <td>
+            <form th:action="@{/admin/produit/update}" method="post">
+                <input type="hidden" name="id" th:value="${produit.id}"/>
+                <button type="submit">Edit</button>
+            </form>
+            <form th:action="@{/admin/produit/delete}" method="post">
+                <input type="hidden" name="id" th:value="${produit.id}"/>
+                <button type="submit">Delete</button>
+            </form>
+        </td>
+    </tr>
+</table>
+<button type="button" th:action="@{/admin/produit/ajouter}">Create</button>
+</body>
+</html>
