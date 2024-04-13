@@ -1,0 +1,24 @@
+ <html xmlns:th="http://www.thymeleaf.org">
+<head><title>ajouter</title></head>
+<body>
+<form th:object="${user}" th:action="@{/users/create}" method="post">
+    <div>Designation:
+        <input type="text" id="designation" th:field="${user.nom}"
+               required>
+    </div>
+    <div>Qte:
+        <input type="number" id="qte" th:field="${user.prenom}" required>
+    </div>
+    <div>Prix:
+        <input type="number" id="prix" th:field="${user.username}" required>
+    </div>
+    <div>
+        Description
+        <textarea id="description" th:field="${user.pwd}">
+</textarea>
+    </div>
+    <button type="submit">Ajouter</button>
+</form>
+</body>
+</html>
+
